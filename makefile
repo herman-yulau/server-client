@@ -5,13 +5,15 @@ SOURCE = client.c
 S_SOURCE = server.c
 OUT = server client
 
-all: server client
+all: server.o client.o
+	$(CC) -o server server.o
+	$(CC) -o client client.o
 	
-server:
-	$(CC) $(S_SOURCE) -o server
+server.o:
+	$(CC) -c $(S_SOURCE)
 
-client:
-	$(CC) $(SOURCE) -o client
+client.o:
+	$(CC) -c $(SOURCE)
 
 clean:
 	rm -rf *.o $(OUT)
