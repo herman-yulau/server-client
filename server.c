@@ -42,15 +42,14 @@ int main(int argc , char *argv[])
         puts("Connection accepted");
 		
 		#if PROCESS							
-		puts("123");						// choose what to use processes or threads
-		if (fork() == 0) {
+		if (fork() == 0) { 						// choose what to use processes or threads
         	client_handler(&client_socket);	
 		}
 		else
 			close(client_socket);
 		
 		#else
-		puts("ehy");
+
 		pthread_t new_thread;         
         if (pthread_create(&new_thread, NULL, client_handler, (void*)&client_socket) < 0) {
 			puts("Thread creation error");
