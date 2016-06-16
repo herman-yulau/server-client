@@ -16,7 +16,6 @@ int main(int argc , char *argv[])
     int read_size, serv_socket, client_socket, c, data_sent;
     struct sockaddr_in server , client;
     
-    //puts("lala");
     serv_socket = socket(AF_INET, SOCK_STREAM, 0); // create socket
     if (serv_socket < 0) {
         printf("Could not create socket");

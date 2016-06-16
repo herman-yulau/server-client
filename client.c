@@ -26,14 +26,14 @@ int main(int argc, char *argv[])
      
     puts("Connected");
    
-	data_sent_size = send(client_socket, path, strlen(path), 0); // sending path
+	data_sent_size = send(client_socket, path, strlen(path), 0); // sending path to the server
     if (data_sent_size < 0) {
         puts("Sending failed");
         return 1;
     }
     printf("Path was sent, size: %d\n", data_sent_size);
 	
-	filename = strrchr(path, '/') + 1;
+	filename = strrchr(path, '/') + 1;							// retrieving file name from path
 	f = fopen(filename, "wb");
 	
 	while (1) {
